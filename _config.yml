@@ -13,10 +13,7 @@ timezone:
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
-title: chirpy # the main title
-=======
 title: Rabin Cybersec Blog # the main title
-
 tagline: Security Writeups # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
@@ -35,13 +32,8 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-<<<<<<< HEAD
-  name: Rabin
-  email: example@domain.com # change to your email address
-=======
   name: Rabin Gaire
   email: rabinhere05@gmail.com # change to your email address
->>>>>>> bbddaaf (added my first blog)
   links:
     # The first element serves as the copyright owner's link
     - https://x.com/RabinGaire9 # change to your Twitter homepage
