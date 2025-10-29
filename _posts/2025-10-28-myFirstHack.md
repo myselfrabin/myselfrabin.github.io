@@ -18,9 +18,9 @@ This is the story of everything about my first hack, which I discovered two year
 Back when I was just learning about the **SQL Injection**, I had the curiosity: *What If I tried it on the real website?* I do surely knew the risk, so I decided it to test it carefully and ethically.
 
 I came across a website belonging to a top Universities. While exploring different endpoints, one caught my attention:
-**?categories=academics** in get request.
+**?q=parameter** in get request.
 
-So, I don't know why it looks familiar for me by doing lots of labs at that time,just like the examples I had been studying. So now I tried a simple **`'`single quote** to test for the Sqli. So what I did was: **?categories=academics'** {notice single quote after academics, that what breaks the sql code}
+So, I don't know why it looks familiar for me by doing lots of labs at that time,just like the examples I had been studying. So now I tried a simple **`'`single quote** to test for the Sqli. So what I did was: **?q=parameter'** {notice single quote after academics, that what breaks the sql code}
 
 ![image](assets/images/sql_error.jpg)
 *Figure: **SQL error message after injecting a single quote**.*
