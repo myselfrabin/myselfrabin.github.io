@@ -29,7 +29,7 @@ So, I don't know why it looks familiar for me by doing lots of labs at that time
 
 After that I open the Hacker's favourite Linux distro : **Kali Linux** and run that vulnerable URL through the **SQLMAP**. To my suprise it dumped the entire database,including the admin credentials, I be like what the heck did I just see???
 
-And then, I go to find the login panel for admin, to my suprise it's so simple just: **website.edu/admin** is the login page for the admin. I entered the dumped username and password and it worked.
+And then, I go to find the login panel for admin, to my suprise it's so simple just: **redacted.edu/admin** is the login page for the admin. I entered the dumped username and password and it worked.
 
 I was now inside the admin dashboard with full access, I could view , add or delete the university records. The account type was **superadmin.**
 
