@@ -18,9 +18,9 @@ This is the story of everything about my first hack, which I discovered two year
 Back when I was just learning about the **SQL Injection**, I had the curiosity: *What If I tried it on the real website?* I do surely knew the risk, so I decided it to test it carefully and ethically.
 
 I came across a website belonging to a top Universities. While exploring different endpoints, one caught my attention:
-**?q=parameter** in get request.
+**?q=parameter**(*anonymized for confidentiality*) in get request. 
 
-So, I don't know why it looks familiar for me by doing lots of labs at that time,just like the examples I had been studying. So now I tried a simple **`'`single quote** to test for the Sqli. So what I did was: **?q=parameter'** {notice single quote after academics, that what breaks the sql code}
+So, I don't know why it looks familiar for me by doing lots of labs at that time,just like the examples I had been studying. So now I tried a simple **`'`single quote** to test for the Sqli. So what I did was: **?q=parameter'** {notice single quote after parameter, that what breaks the sql code}
 
 ![image](assets/images/sql_error.jpg)
 *Figure: **SQL error message after injecting a single quote**.*
@@ -48,7 +48,7 @@ This experience was my first real-world hack. It taught me a lot things like it 
 
 I never did any harm to the website, I never leaked data. I just wanted to learn and I did, and looking back I feel proud of myself like I didnot let my ethics go down.
 
-# Final Thoughts
+## Final Thoughts
 
 If anyone is on Cybersecurity and Ethical Hacking, always remember: **With great power comes great responsibility.** Test safely, report responsibly, and never harm system or data. 
 
