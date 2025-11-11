@@ -147,6 +147,9 @@ pwa:
 
 paginate: 10
 
+# Publish posts with future dates
+future: true
+
 # The base URL of your site
 baseurl: ""
 
