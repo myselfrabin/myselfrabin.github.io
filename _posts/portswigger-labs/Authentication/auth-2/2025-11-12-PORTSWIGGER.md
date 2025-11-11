@@ -4,7 +4,7 @@ date: 2025-11-12
 categories: [PORTSWIGGER]
 tags: [Authentication Vulnerabilities]
 image:
-    path: https://i.pinimg.com/736x/2b/09/27/2b09279d36bf92fa7e0c7c23f6913dad.jpg
+    path: https://i.pinimg.com/originals/f3/07/a7/f307a778044a9f81dd9637114f015032.gif
 
 
 ---
