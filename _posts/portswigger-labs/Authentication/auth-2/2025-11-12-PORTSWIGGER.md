@@ -1,5 +1,5 @@
 ---
-title: "PortSwigger Labs"
+title: "2FA SIMPLE BYPASS"
 date: 2025-11-12
 categories: [PORTSWIGGER]
 tags: [Authentication Vulnerabilities]
