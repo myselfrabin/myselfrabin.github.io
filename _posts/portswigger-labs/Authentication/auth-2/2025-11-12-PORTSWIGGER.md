@@ -1,15 +1,17 @@
 ---
-title: "2FA SIMPLE BYPASS"
+title: "Authentication Vulnerabilities"
 date: 2025-11-12
 categories: [PORTSWIGGER]
-tags: [Authentication Vulnerabilities]
+tags: [BSCP]
 image:
     path: https://i.pinimg.com/originals/f3/07/a7/f307a778044a9f81dd9637114f015032.gif
 
 
 ---
+### **Authentication vulnerabilities** are weaknesses in the login or identity-verification process that allow attackers to impersonate users, access sensitive data, or break into systems. These flaws make it possible to bypass protections like passwords, tokens, or multi-factor checks and open the door for further attacks.
 
-# 2FA simple bypass | Nov 12, 2025
+# LAB FROM PORTSWIGGER ACADEMY 
+## LAB- 02: 2FA simple bypass | Nov 12, 2025
 
 ## Introduction
 
@@ -117,3 +119,4 @@ if __name__=="__main__":
 # What we've learned:
 
 1. 2FA simple bypass
+2. Automating this bug through python.
