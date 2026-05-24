@@ -12,7 +12,7 @@ I always forget this. Every single time I start a new box or clone a tool from G
 
 ![Virtual Python env](/assets/images/VIRTUAL_ENV/virtual.png)
 
-## Why even bother with venv?
+## Why even bother with venv??
 
 Here's the thing. Python is everywhere in hacking. Most tools, exploits, brute-forcers  they're all written in Python. But the problem is:
 
