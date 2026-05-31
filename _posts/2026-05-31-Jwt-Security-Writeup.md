@@ -375,6 +375,5 @@ Happy hacking. Stay ethical. 🖤
 
 ---
 
-*— Rabin Gaire | [myselfrabin.github.io](https://myselfrabin.github.io)*
 
 *Tags: JWT, Web Security, Pentest, Authentication, PortSwigger, Offensive Security*
