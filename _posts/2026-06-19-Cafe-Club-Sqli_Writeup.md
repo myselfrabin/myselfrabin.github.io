@@ -1,5 +1,5 @@
 ---
-title: "CAFE CLUB - CTF Daily Challenge Writeup"
+title: "CAFE CLUB - Bugforge Daily Challange"
 description: A UNION-based SQL injection writeup from BugForge Labs. The login page looked safe, but a product endpoint wasn't - this is the full process from finding the injection to dumping the users table and getting the flag.
 date: 2026-06-19 00:00:00 +0545
 categories: [BugForge, SQL Injection]
