@@ -1,0 +1,58 @@
+<svg width="100%" viewBox="0 0 690 390" xmlns="http://www.w3.org/2000/svg" role="img" style="">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Illustration of two access token keys sharing a fixed prefix with a brute-forced suffix</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">A dark editorial illustration showing two cookie-shaped key tags labeled with a shared token prefix and differing 3-character suffixes, with a grid of scrambled letters behind them resolving into the correct combination, symbolizing the brute-force discovery in the GIFT LAB writeup.</desc>
+<defs>
+<linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#14151a"/>
+<stop offset="100%" stop-color="#1f2128"/>
+</linearGradient>
+<linearGradient id="keyGradActive" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#2dd4bf"/>
+<stop offset="100%" stop-color="#0ea5a0"/>
+</linearGradient>
+<linearGradient id="keyGradMuted" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#3a3d46"/>
+<stop offset="100%" stop-color="#2a2c33"/>
+</linearGradient>
+</defs>
+
+<rect x="0" y="0" width="680" height="380" fill="url(#bgGrad)" style="stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g opacity="0.55" font-family="monospace" font-size="13" fill="#3a3d46" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.55;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<text x="40" y="40" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">aaq mln pzt jko xrv tbn qsf wlc</text>
+<text x="40" y="62" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">vmp ktj nrs blo cxz qaw eyt iuf</text>
+<text x="40" y="84" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">hgd ljp osm wte ank fcv rqb yzx</text>
+<text x="40" y="106" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">tow nrf jdk plq xva mse hcb gzi</text>
+<text x="40" y="316" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">qpz xln mtv jra fws bky oue hdc</text>
+<text x="40" y="338" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">lvn ostr jpa hyz mqf wke bxd ctu</text>
+<text x="40" y="360" style="fill:rgb(58, 61, 70);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:auto">rls jto kvn pae xqm zbf wcy hud</text>
+</g>
+
+<rect x="40" y="120" width="600" height="180" rx="8" fill="#1b1c22" stroke="#34363e" stroke-width="0.5" style="fill:rgb(27, 28, 34);stroke:rgb(52, 54, 62);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g transform="translate(120,170)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="0" y="0" width="230" height="80" rx="14" fill="url(#keyGradMuted)" style="stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="34" cy="40" r="16" fill="#1b1c22" style="fill:rgb(27, 28, 34);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="50" y="32" width="150" height="16" rx="3" fill="#1b1c22" style="fill:rgb(27, 28, 34);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="50" y="32" width="105" height="16" rx="3" fill="none" style="fill:none;stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="50" y="44" font-family="monospace" font-size="13" fill="#9a9ea8" dominant-baseline="middle" style="fill:rgb(154, 158, 168);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:middle">n0MqjBXna9A4</text>
+<text x="158" y="44" font-family="monospace" font-size="13" fill="#e8a64a" dominant-baseline="middle" style="fill:rgb(232, 166, 74);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:middle">svu</text>
+<text x="115" y="-12" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#7a7e88" style="fill:rgb(122, 126, 136);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">user one</text>
+</g>
+
+<g transform="translate(380,170)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="0" y="0" width="230" height="80" rx="14" fill="url(#keyGradActive)" style="stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="34" cy="40" r="16" fill="#0e3a37" style="fill:rgb(14, 58, 55);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="50" y="32" width="150" height="16" rx="3" fill="#0e3a37" style="fill:rgb(14, 58, 55);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="50" y="44" font-family="monospace" font-size="13" fill="#bdf5ee" dominant-baseline="middle" style="fill:rgb(189, 245, 238);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:middle">n0MqjBXna9A4</text>
+<text x="158" y="44" font-family="monospace" font-size="13" fill="#ffffff" dominant-baseline="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:monospace;font-size:13px;font-weight:400;text-anchor:start;dominant-baseline:middle">rls</text>
+<text x="115" y="-12" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#8fe9de" style="fill:rgb(143, 233, 222);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">admin - cracked</text>
+</g>
+
+<g transform="translate(220,265)" text-anchor="middle" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:middle;dominant-baseline:auto">
+<text x="0" y="0" font-family="sans-serif" font-size="13" fill="#7a7e88" style="fill:rgb(122, 126, 136);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:400;text-anchor:middle;dominant-baseline:auto">shared prefix</text>
+</g>
+<g transform="translate(478,265)" text-anchor="middle" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:middle;dominant-baseline:auto">
+<text x="0" y="0" font-family="sans-serif" font-size="13" fill="#5cd9cc" style="fill:rgb(92, 217, 204);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:13px;font-weight:400;text-anchor:middle;dominant-baseline:auto">3 chars brute-forced</text>
+</g>
+</svg>
