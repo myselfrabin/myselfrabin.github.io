@@ -16,8 +16,6 @@ Since then, I haven't stopped. I'm currently doing my Bachelor's in CSIT from Ne
 
 I'm an introvert who found his voice through a keyboard.
 
-Right now I'm also learning German because I have a plan. Masters in Cybersecurity in Germany. It's a long road but I'm building toward it one day at a time.
-
 I want to give something back to this world through cybersecurity. I don't know exactly what that looks like yet, but I'm working on it.
 
 Oh and you can call me **rakshak07**. That's my hacking name, given to me by my father. It stuck.
