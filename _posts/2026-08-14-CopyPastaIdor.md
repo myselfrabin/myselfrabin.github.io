@@ -4,12 +4,10 @@ description: An IDOR writeup from BugForge Labs. A code snippet sharing app leak
 date: 2026-06-04 00:00:00 +0545
 categories: [BugForge, IDOR]
 tags: [idor, ctf, jwt, api-security, bugforge]
-image: /assets/images/copypasta/admin.png
+image: /assets/images/copypasta/copypasta_idor_attack_chain.svg
 ---
 
-I do [BugForge labs](https://bugforge.io) on a daily basis and keep all of them as writeups in my [GitHub](https://github.com/myselfrabin/bugforge_labs). Most stay there, but this one had a fun escalation chain, so I'm bringing it over here too.
-
-This one's a CTF (Daily Challenge) from BugForge Labs - a code snippet sharing app called CopyPasta. Looks like a normal login/register app at first, but the moment I started poking at the profile page, things fell apart fast.
+This one's a CTF (Daily Challenge) from [BugForge labs](https://bugforge.io) - a code snippet sharing app called CopyPasta. Looks like a normal login/register app at first, but the moment I started poking at the profile page, things fell apart fast.
 
 > **Platform:** BugForge Labs
 > **Category:** Web Application Exploitation
