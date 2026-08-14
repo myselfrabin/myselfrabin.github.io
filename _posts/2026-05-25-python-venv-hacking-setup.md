@@ -1,7 +1,7 @@
 ---
 title: "Python Virtual Environment  Stop Polluting Your System"
 date: 2026-05-25 00:00:00 +0000
-categories: [Setup, Linux]
+categories: [Pyton Virtual Env Setup]
 tags: [python, venv, pyenv, tools, setup]
 image:
     path: /assets/images/VIRTUAL_ENV/peace.gif

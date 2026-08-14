@@ -1,0 +1,156 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<div class="home-folder-grid px-xl-1">
+  <h1 class="mb-4">Writeups by Category</h1>
+
+  {% assign parent_names = "" | split: "" %}
+  {% for post in site.posts %}
+    {% assign parent = post.categories[0] %}
+    {% if parent %}
+      {% unless parent_names contains parent %}
+        {% assign parent_names = parent_names | push: parent %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+  {% assign parent_names = parent_names | sort %}
+
+  <div class="row row-cols-1 row-cols-md-2 g-3">
+    {% for parent in parent_names %}
+      {% assign parent_posts = site.posts | where_exp: "p", "p.categories[0] == parent" %}
+
+      {% assign sub_names = "" | split: "" %}
+      {% for post in parent_posts %}
+        {% if post.categories.size > 1 %}
+          {% assign sub = post.categories[1] %}
+          {% unless sub_names contains sub %}
+            {% assign sub_names = sub_names | push: sub %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+      {% assign sub_names = sub_names | sort %}
+
+      <div class="col">
+        <div class="folder-card p-3 rounded-3">
+          <a href="{{ site.baseurl }}/categories/{{ parent | slugify }}/" class="d-flex align-items-center text-decoration-none folder-parent-link">
+            {% include category-icon.html name=parent class="fa-2x me-3" %}
+            <div>
+              <div class="fw-bold fs-5">{{ parent }}</div>
+              <div class="text-muted small">
+                {{ parent_posts.size }} writeup{% if parent_posts.size != 1 %}s{% endif %}
+              </div>
+            </div>
+          </a>
+
+          {% if sub_names.size > 0 %}
+            <div class="subfolder-list mt-2 ps-4">
+              {% for sub in sub_names %}
+                {% assign sub_posts = parent_posts | where_exp: "p", "p.categories[1] == sub" %}
+                <a href="{{ site.baseurl }}/categories/{{ sub | slugify }}/" class="d-flex align-items-center text-decoration-none subfolder-link py-1">
+                  {% include category-icon.html name=sub class="me-2" %}
+                  <span class="me-1">{{ sub }}</span>
+                  <span class="text-muted small">({{ sub_posts.size }})</span>
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr class="my-5">
+
+  <h2 class="mb-3">Recently Updated</h2>
+
+  <div id="post-list" class="flex-grow-1 px-xl-1">
+    {% assign recent_posts = site.posts | slice: 0, 5 %}
+    {% for post in recent_posts %}
+      <article class="card-wrapper card">
+        <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+          {% assign card_body_col = '12' %}
+
+          {% if post.image %}
+            {% assign src = post.image.path | default: post.image %}
+            {% if post.media_subpath %}
+              {% unless src contains '://' %}
+                {% assign src = post.media_subpath
+                  | append: '/'
+                  | append: src
+                  | replace: '///', '/'
+                  | replace: '//', '/'
+                %}
+              {% endunless %}
+            {% endif %}
+            {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+            <div class="col-md-5">
+              <img src="{{ src }}" alt="{{ alt }}">
+            </div>
+            {% assign card_body_col = '7' %}
+          {% endif %}
+
+          <div class="col-md-{{ card_body_col }}">
+            <div class="card-body d-flex flex-column">
+              <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
+              <div class="card-text content mt-0 mb-3">
+                <p>{% include post-summary.html %}</p>
+              </div>
+              <div class="post-meta flex-grow-1 d-flex align-items-end">
+                <div class="me-auto">
+                  <i class="far fa-calendar fa-fw me-1"></i>
+                  {% include datetime.html date=post.date lang=lang %}
+                  {% if post.categories.size > 0 %}
+                    <i class="far fa-folder-open fa-fw me-1"></i>
+                    <span class="categories">
+                      {% for category in post.categories %}
+                        {{ category }}
+                        {%- unless forloop.last -%},{%- endunless -%}
+                      {% endfor %}
+                    </span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.folder-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border-color, rgba(128,128,128,.25));
+  color: var(--text-color);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  height: 100%;
+}
+.folder-parent-link {
+  color: var(--text-color);
+}
+.folder-parent-link:hover {
+  color: var(--link-color);
+}
+.folder-parent-link i {
+  color: var(--link-color);
+}
+.subfolder-list {
+  border-left: 1px dashed var(--card-border-color, rgba(128,128,128,.35));
+}
+.subfolder-link {
+  color: var(--text-color);
+  opacity: .85;
+}
+.subfolder-link:hover {
+  color: var(--link-color);
+  opacity: 1;
+}
+.subfolder-link i {
+  color: var(--text-muted-color, #999);
+  font-size: .85em;
+}
+</style>

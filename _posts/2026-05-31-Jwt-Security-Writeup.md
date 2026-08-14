@@ -1,7 +1,7 @@
 ---
 title: "JWT Attacks: From Token to Takeover"
 date: 2026-05-31
-categories: [Web Security, JWT]
+categories: [JWT]
 tags: [jwt, authentication, pentest, portswigger, web-hacking, offensive-security]
 image:
     path: /assets/images/JWTs/ALONE_warrior.gif

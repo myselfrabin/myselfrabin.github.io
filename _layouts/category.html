@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<div class="category-page px-xl-1">
+
+  <h1 class="mb-4">
+    {% include category-icon.html name=page.title class="" %}
+    {{ page.title }}
+    <span class="text-muted fs-5">{{ page.posts.size }}</span>
+  </h1>
+
+  {% assign sub_names = "" | split: "" %}
+  {% assign loose_posts = "" | split: "" %}
+
+  {% for post in page.posts %}
+    {% if post.categories.size > 1 and post.categories[0] == page.title %}
+      {% assign sub = post.categories[1] %}
+      {% unless sub_names contains sub %}
+        {% assign sub_names = sub_names | push: sub %}
+      {% endunless %}
+    {% else %}
+      {% assign loose_posts = loose_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+  {% assign sub_names = sub_names | sort %}
+
+  {% if sub_names.size > 0 %}
+    <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+      {% for sub in sub_names %}
+        {% assign sub_posts = page.posts | where_exp: "p", "p.categories[1] == sub" %}
+        <div class="col">
+          <a href="{{ site.baseurl }}/categories/{{ sub | slugify }}/" class="folder-card d-flex align-items-center p-3 rounded-3 text-decoration-none">
+            {% include category-icon.html name=sub class="fa-2x me-3" %}
+            <div>
+              <div class="fw-bold fs-5">{{ sub }}</div>
+              <div class="text-muted small">
+                {{ sub_posts.size }} writeup{% if sub_posts.size != 1 %}s{% endif %}
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if loose_posts.size > 0 %}
+    {% if sub_names.size > 0 %}
+      <h2 class="mb-3 fs-5 text-muted">More from {{ page.title }}</h2>
+    {% endif %}
+    <ul class="post-list list-unstyled">
+      {% for post in loose_posts %}
+        <li class="d-flex justify-content-between align-items-center py-2 border-bottom">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="text-muted small ms-3">
+            {% include datetime.html date=post.date lang=lang %}
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+</div>
+
+<style>
+.folder-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border-color, rgba(128,128,128,.25));
+  color: var(--text-color);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.folder-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--link-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  color: var(--text-color);
+}
+.folder-card i {
+  color: var(--link-color);
+}
+</style>

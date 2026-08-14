@@ -1,7 +1,7 @@
 ---
 title: "GIFT LAB - Bugforge Daily Challenge"
 date: 2026-06-28 18:00:00 +0000
-categories: [Web Security, BugForge]
+categories: [BugForge]
 tags: [broken-authentication, idor, brute-force, web-exploitation, bugforge]
 description: A predictable admin access token writeup from BugForge Labs. The token looked random at first glance, but comparing it across two accounts revealed a fixed prefix and a brute-forceable 3-character suffix - this is the full process from spotting the cookie to getting the flag.
 image:

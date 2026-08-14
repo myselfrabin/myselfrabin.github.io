@@ -1,0 +1,59 @@
+{%- comment -%}
+  Usage: {% include category-icon.html name=category_name class="fa-2x me-3" size="32" %}
+
+  IMPORTANT: this renders logos as a CSS background-image on a <span>,
+  NOT a real <img> tag. Chirpy auto-wraps every <img> in a lightbox/
+  lazy-load "shimmer" placeholder at build time, which forces tiny
+  icons to freeze at a few px. Using background-image avoids that
+  pipeline entirely.
+
+  To map a category to a custom logo, add an entry to `_img` below.
+  If no image is mapped, it falls back to the Font Awesome `_icon` case.
+
+  NOTE: use a small, roughly SQUARE image (e.g. 128x128 or 256x256px,
+  cropped tight around the logo mark) and keep the file size small
+  (a few KB, not hundreds) since it's just a tiny badge.
+{%- endcomment -%}
+
+{%- assign _img = "" -%}
+{%- case include.name -%}
+  {%- when "BugForge" -%}    {%- assign _img = "/assets/images/icons/bugFrogeImage.png" -%}
+  {%- when "PortSwigger" -%} {%- assign _img = "" -%}
+{%- endcase -%}
+
+{%- assign _size = include.size | default: "32" -%}
+
+{%- if _img != "" -%}
+  <span
+    class="cat-icon-wrap {{ include.class }}"
+    role="img"
+    aria-label="{{ include.name }}"
+    style="
+      display:inline-block !important;
+      width:{{ _size }}px !important;
+      height:{{ _size }}px !important;
+      flex:0 0 {{ _size }}px !important;
+      border-radius:6px !important;
+      background-image:url('{{ _img | relative_url }}') !important;
+      background-size:cover !important;
+      background-position:center !important;
+      background-repeat:no-repeat !important;
+    "
+  ></span>
+{%- else -%}
+  {%- assign _icon = "fas fa-folder-open" -%}
+  {%- case include.name -%}
+    {%- when "PortSwigger" -%}    {%- assign _icon = "fas fa-shield-alt" -%}
+    {%- when "TryHackMe" -%}      {%- assign _icon = "fas fa-flag" -%}
+    {%- when "HackTheBox" -%}     {%- assign _icon = "fas fa-cube" -%}
+    {%- when "SQLI" -%}           {%- assign _icon = "fas fa-database" -%}
+    {%- when "JWT" -%}            {%- assign _icon = "fas fa-key" -%}
+    {%- when "IDOR" -%}           {%- assign _icon = "fas fa-user-secret" -%}
+    {%- when "Authentication" -%} {%- assign _icon = "fas fa-lock" -%}
+    {%- when "First Steps" -%}    {%- assign _icon = "fas fa-shoe-prints" -%}
+    {%- when "Setup" -%}          {%- assign _icon = "fas fa-tools" -%}
+    {%- when "Linux" -%}          {%- assign _icon = "fab fa-linux" -%}
+    {%- when "Guides" -%}         {%- assign _icon = "fas fa-book" -%}
+  {%- endcase -%}
+  <i class="{{ _icon }} {{ include.class }}"></i>
+{%- endif -%}

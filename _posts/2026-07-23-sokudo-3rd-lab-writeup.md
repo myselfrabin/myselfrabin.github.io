@@ -1,7 +1,7 @@
 ---
 title: "Sokudo-3rd - Bugforge Daily Challenge"
 date: 2026-07-22 18:00:00 +0000
-categories: [Web Security, BugForge]
+categories: [BugForge]
 tags: [bugforge, jwt, broken-authentication, ctf, offensive-security]
 description: A JWT algorithm-none attack chained with an API version downgrade writeup from BugForge Labs. The new API rejected the forged token - but the old one didn't.
 image:
