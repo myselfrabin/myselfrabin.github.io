@@ -1,5 +1,6 @@
 {%- comment -%}
-  Usage: {% include category-icon.html name=category_name class="fa-2x me-3" size="32" %}
+  Usage: {% include category-icon.html name=sub class="fa-2x me-3" size="32" %}
+  
 
   IMPORTANT: this renders logos as a CSS background-image on a <span>,
   NOT a real <img> tag. Chirpy auto-wraps every <img> in a lightbox/
@@ -17,8 +18,12 @@
 
 {%- assign _img = "" -%}
 {%- case include.name -%}
-  {%- when "BugForge" -%}    {%- assign _img = "/assets/images/icons/bugFrogeImage.png" -%}
-  {%- when "PortSwigger" -%} {%- assign _img = "" -%}
+  {%- when "BugForge" -%}
+  {%- assign _img = "/assets/images/icons/bugFrogeImage.png" -%}
+  {%- when "GraphQL" -%}
+  {%- assign _img = "/assets/images/icons/grahpqllogo.svg" -%}
+  {%- when "PortSwigger" -%}
+  {%- assign _img = "" -%}
 {%- endcase -%}
 
 {%- assign _size = include.size | default: "32" -%}

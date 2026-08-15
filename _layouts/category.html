@@ -7,7 +7,7 @@ layout: default
 <div class="category-page px-xl-1">
 
   <h1 class="mb-4">
-    {% include category-icon.html name=page.title class="" %}
+    {% include category-icon.html name=page.title class="" size="32" %}
     {{ page.title }}
     <span class="text-muted fs-5">{{ page.posts.size }}</span>
   </h1>
@@ -33,7 +33,7 @@ layout: default
         {% assign sub_posts = page.posts | where_exp: "p", "p.categories[1] == sub" %}
         <div class="col">
           <a href="{{ site.baseurl }}/categories/{{ sub | slugify }}/" class="folder-card d-flex align-items-center p-3 rounded-3 text-decoration-none">
-            {% include category-icon.html name=sub class="fa-2x me-3" %}
+            {% include category-icon.html name=sub class="fa-2x me-3" size="32" %}
             <div>
               <div class="fw-bold fs-5">{{ sub }}</div>
               <div class="text-muted small">

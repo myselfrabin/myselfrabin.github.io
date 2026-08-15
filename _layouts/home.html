@@ -36,7 +36,7 @@ layout: default
       <div class="col">
         <div class="folder-card p-3 rounded-3">
           <a href="{{ site.baseurl }}/categories/{{ parent | slugify }}/" class="d-flex align-items-center text-decoration-none folder-parent-link">
-            {% include category-icon.html name=parent class="fa-2x me-3" %}
+            {% include category-icon.html name=parent class="fa-2x me-3" size="32" %}
             <div>
               <div class="fw-bold fs-5">{{ parent }}</div>
               <div class="text-muted small">
@@ -50,7 +50,7 @@ layout: default
               {% for sub in sub_names %}
                 {% assign sub_posts = parent_posts | where_exp: "p", "p.categories[1] == sub" %}
                 <a href="{{ site.baseurl }}/categories/{{ sub | slugify }}/" class="d-flex align-items-center text-decoration-none subfolder-link py-1">
-                  {% include category-icon.html name=sub class="me-2" %}
+                  {% include category-icon.html name=sub class="me-2" size="24" %}
                   <span class="me-1">{{ sub }}</span>
                   <span class="text-muted small">({{ sub_posts.size }})</span>
                 </a>
