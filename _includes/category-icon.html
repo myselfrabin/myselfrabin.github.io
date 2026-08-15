@@ -22,6 +22,8 @@
   {%- assign _img = "/assets/images/icons/bugFrogeImage.png" -%}
   {%- when "GraphQL" -%}
   {%- assign _img = "/assets/images/icons/grahpqllogo.svg" -%}
+   {%- when "CCNA" -%}
+  {%- assign _img = "/assets/images/icons/2182089.webp" -%}
   {%- when "PortSwigger" -%}
   {%- assign _img = "" -%}
 {%- endcase -%}
@@ -50,6 +52,7 @@
   {%- case include.name -%}
     {%- when "PortSwigger" -%}    {%- assign _icon = "fas fa-shield-alt" -%}
     {%- when "TryHackMe" -%}      {%- assign _icon = "fas fa-flag" -%}
+    {%- when "Notes" -%}          {%- assign _icon = "fas fa-book-open" -%}
     {%- when "HackTheBox" -%}     {%- assign _icon = "fas fa-cube" -%}
     {%- when "SQLI" -%}           {%- assign _icon = "fas fa-database" -%}
     {%- when "JWT" -%}            {%- assign _icon = "fas fa-key" -%}
