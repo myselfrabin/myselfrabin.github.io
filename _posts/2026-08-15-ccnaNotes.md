@@ -23,7 +23,7 @@ In the early days of computer networking, there were several attempts to define 
 - A protocol was often developed by a specific vendor (e.g. IBM) to be used with their own products.
 - With this proprietary approach, enabling communication between different vendors' products was difficult.
 
-[![Apple Mac can't talk to IBM due to lack of a standard](/assets/images/ccna/TCPip/notProperStandardAppleMaccan'ttalktoIBM.png)](/assets/images/ccna/TCPip/notProperStandardAppleMaccanttalktoIBM.png)
+[![Apple Mac can't talk to IBM due to lack of a standard](/assets/images/ccna/TCPip/notProperStandardAppleMaccanttalktoIBM.png)](/assets/images/ccna/TCPip/notProperStandardAppleMaccanttalktoIBM.png)
 _Apple using its own protocol and IBM using its own protocol means neither can talk to the other - the fix is a common, standardized protocol._
 
 A **standard** is an agreed-upon specification that describes how a protocol or technology should work. With a **vendor-neutral** standard, devices of all types can communicate with each other:
