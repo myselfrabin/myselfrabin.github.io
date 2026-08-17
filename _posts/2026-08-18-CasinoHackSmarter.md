@@ -78,7 +78,7 @@ Error message: **"Not reserved"** - meaning the system checks if the guest name 
 
 ![Auth Failed](/assets/images/casino/Pasted%20image%2020260817214654.png)
 
-Standard fuzzing and guessing wouldn't work here. I needed to find valid credentials or a different way in.
+May be we can bruteforce if we have the correct wordlist for the guestLastName and roomNumber but I will not go there, I needed to find valid credentials or a different way in.
 
 ---
 
