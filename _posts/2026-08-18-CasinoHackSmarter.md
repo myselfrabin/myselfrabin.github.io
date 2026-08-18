@@ -8,7 +8,7 @@ difficulty: Medium
 image: /assets/images/casino/casino.png
 ---
 
-Casino was a fun medium-level challenge that combined web exploitation with Linux privilege escalation. I went from finding a hidden API endpoint → SSTI vulnerability → privilege escalation through plaintext credentials scattered across log files and bash history.
+Casino was a fun medium-level challenge that combined web exploitation with Linux privilege escalation. I went from finding a hidden API endpoint to SSTI vulnerability to privilege escalation through plaintext credentials scattered across log files and bash history.
 
 ## The Attack Flow
 
@@ -21,15 +21,15 @@ Occupied Rooms Data → Guest Login
   ↓
 Reflected Name Field → SSTI
   ↓
-Command Execution → Read Creds
+Command Execution via SSTI → RCE as www-data
   ↓
-SSH Private Key → Shell Access
+Read George's Files → First User Flag
   ↓
-George's Bash History → David's Password
+Read Bash History → David's Password
   ↓
-David's Logs → Root Password
+Escalate to David → Find Root Password in Logs
   ↓
-Root Flag ✓
+Become Root → Root Flag ✓
 ```
 
 ---
@@ -48,7 +48,7 @@ PORT     STATE SERVICE VERSION
 2222/tcp open  ssh     OpenSSH 8.4p1 Debian
 ```
 
-Three ports open. Port 80 caught my eye immediately - **Werkzeug** means Python backend.The web app title was "Hack Smarter World - Guest WiFi & Portal" - a hotel/ISP guest portal.
+Three ports open. Port 80 caught my eye immediately - **Werkzeug** means Python backend. The web app title was "Hack Smarter World - Guest WiFi & Portal" - a hotel/ISP guest portal.
 
 ---
 
@@ -74,11 +74,11 @@ I tried random credentials on the login page.
 
 ![Login Page](/assets/images/casino/Pasted%20image%2020260817214612.png)
 
-Error message: **"Not reserved"** - meaning the system checks if the guest name + room combo is actually in the reservation system.
+Error message: **"Not reserved"** - meaning the system checks if the guest name and room combo is actually in the reservation system.
 
 ![Auth Failed](/assets/images/casino/Pasted%20image%2020260817214654.png)
 
-May be we can bruteforce if we have the correct wordlist for the guestLastName and roomNumber but I will not go there, I needed to find valid credentials or a different way in.
+Maybe we could bruteforce with the correct wordlist for guestLastName and roomNumber, but I decided to find valid credentials or a different way in instead.
 
 ---
 
@@ -145,7 +145,7 @@ Inside the dashboard, I noticed the guest name "James Smith" was displayed on th
 
 ![Dashboard with Name](/assets/images/casino/Pasted%20image%2020260817221410.png)
 
-Reflected user input + updateable field = **immediately test for SSTI/XSS**. Since we know it's Python/Werkzeug.
+Reflected user input + updateable field = **immediately test for SSTI/XSS**. Since we know it's Python/Werkzeug, I expected Jinja2 templating.
 
 Let me test basic SSTI payloads:
 
@@ -159,7 +159,7 @@ Let me test basic SSTI payloads:
 
 ![SSTI Test 2](/assets/images/casino/Pasted%20image%2020260817222043.png)
 
-** SSTI confirmed!**
+**SSTI confirmed!**
 
 ---
 
@@ -198,36 +198,15 @@ Both have login shells. These are my targets for privilege escalation.
 
 ---
 
-## Step 9: Finding George's SSH Private Key
+## Step 9: Getting a Reverse Shell
 
-Let me check for SSH keys:
-
-```python
-{% raw %}{{ config.__class__.__init__.__globals__['os'].popen('cat /home/george/.ssh/id_rsa').read() }}{% endraw %}
-```
-
-![George SSH Key](/assets/images/casino/Pasted%20image%2020260817223747.png)
-
-**Got it!** George's SSH private key:
-
-```
------BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gt
-[...key content...]
------END OPENSSH PRIVATE KEY-----
-```
-
----
-
-## Step 10: Getting a Reverse Shell
-
-Before using SSH, I wanted an interactive shell through the web app itself. I set up a listener:
+I wanted an interactive shell through the web app. I set up a listener:
 
 ```bash
 nc -lvnp 4444
 ```
 
-Then crafted a reverse shell payload. First attempt with base64 encoding failed (used wrong IP). 
+Then crafted a reverse shell payload. First attempt with base64 encoding failed (used wrong IP).
 
 ![Reverse Shell Attempt 1](/assets/images/casino/Pasted%20image%2020260817224442.png)
 
@@ -251,9 +230,9 @@ I corrected the IP to my VPN address and used the direct bash reverse shell payl
 
 ---
 
-## Step 11: Getting the User Flag (George)
+## Step 10: Getting the User Flag (George)
 
-Now I had shell access as `www-data`. Let me read George's home directory:
+Now I had shell access as `www-data`. I could read files in George's home directory since www-data has permissions. Let me check what's there:
 
 ```bash
 cat /home/george/*
@@ -261,12 +240,13 @@ cat /home/george/*
 
 ![First Flag](/assets/images/casino/Pasted%20image%2020260817230753.png)
 
-**First flag captured!**
+**First user flag captured!** This is the flag for the George user account.
 
 ---
 
-## Step 12: Checking BASH HISTORY FILE
--  Now I checked bash history from here:
+## Step 11: Finding David's Password in Bash History
+
+From my shell as `www-data`, I could read George's bash history:
 
 ```bash
 cat /home/george/.bash_history
@@ -293,9 +273,9 @@ uid=1001(david) gid=1001(david) groups=1001(david),4(adm)
 
 ---
 
-## Step 13: Finding Root Password in Logs
+## Step 12: Finding Root Password in Logs
 
-David's bash history was empty, so I couldn't use the same trick. Time to look for log files. Checked `/var/log/provisioning.log`:
+David's bash history was empty, so I needed to look for other credential sources. I checked log files in `/var/log`:
 
 ```bash
 cat /var/log/provisioning.log
@@ -305,15 +285,13 @@ cat /var/log/provisioning.log
 
 ![Found Log](/assets/images/casino/Pasted%20image%2020260817233256.png)
 
-Found it inside David's area in `/var/log`. Reading it revealed the **root password**.
+Found it. Reading the provisioning log revealed the **root password**.
 
 ![Provisioning Log](/assets/images/casino/Pasted%20image%2020260817233530.png)
 
-- So at this point I found a password to become the root user.
-
 ---
 
-## Step 14: Becoming Root
+## Step 13: Becoming Root
 
 ```bash
 su root
@@ -330,7 +308,7 @@ whoami
 
 ---
 
-## Step 15: Root Flag
+## Step 14: Getting the Root Flag
 
 ```bash
 cat /root/root.txt
@@ -338,7 +316,7 @@ cat /root/root.txt
 
 ![Root Flag](/assets/images/casino/Pasted%20image%2020260817233932.png)
 
-**Root flag captured!**
+**Second flag captured!** This is the root flag - the final objective of the challenge.
 
 ---
 
@@ -348,11 +326,10 @@ cat /root/root.txt
 |-------|--------|------------------|
 | Initial Foothold | Source map revealed API | Source code exposure |
 | Guest Login | API leaked reservation data | Unauthenticated endpoint |
-| Code Execution |  SSTI via name field | Reflected input |
+| Code Execution | SSTI via name field | Reflected input |
 | Shell Access | Reverse shell via SSTI | RCE as www-data |
-| User Pivot #1 | George's SSH private key | Read via SSTI |
 | User Flag | Read /home/george/* | File permissions |
-| User Pivot #2 | David's password in bash history | George's bash history |
+| User Pivot | David's password in bash history | George's bash history |
 | Root Pivot | Root password in log file | David's file access |
 | Root Flag | cat /root/root.txt | Root access |
 
@@ -367,7 +344,7 @@ Source map files (`.map`) expose your original unminified code. Developers forge
 The `/api/v1/rooms/status?status=occupied` endpoint required zero authentication and leaked 100 guests' full details. One API endpoint = game over.
 
 ### 3. Reflected Fields = SSTI/XSS Testing
-Any user input that gets reflected on the page should be tested for injection. Knowing the backend tech (Werkzeug helped me pick the right payloads immediately.
+Any user input that gets reflected on the page should be tested for injection. Knowing the backend tech (Werkzeug) helped me pick the right payloads immediately.
 
 ### 4. Bash History is a Goldmine
 Commands get saved to `.bash_history` in plaintext, including ones with passwords. Devs and sysadmins frequently run `su` or set credentials inline - massive security risk.
@@ -385,7 +362,6 @@ Using the lab IP instead of my VPN IP wasted time. Always verify your connection
 - **ffuf** - Directory fuzzing
 - **Burp Suite** - Intercepting requests and exploring app
 - **nc** - Reverse shell listener
-- **SSH** - Accessing the box as different users
 
 ---
 
