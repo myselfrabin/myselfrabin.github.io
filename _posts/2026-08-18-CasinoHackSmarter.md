@@ -159,7 +159,10 @@ Let me test basic SSTI payloads:
 
 ![SSTI Test 2](/assets/images/casino/Pasted%20image%2020260817222043.png)
 
-**SSTI confirmed!**
+**SSTI confirmed!, The result `49` appeared directly in the input field itself. 
+When the server processes the template and executes the expression, it renders 
+the output in the same place where I put the payload. This confirms the server 
+is actually executing the template code.**
 
 ---
 
