@@ -1,5 +1,5 @@
 ---
-title: "Word Mess - Bugforge Daily Challenge"
+title: "Word Mess - Bugforge Weekly Challenge"
 date: 2026-08-29 18:00:00 +0000
 categories: [BugForge , SSTI ]
 tags: [bugforge, wordpress, mass-assignment, ssti, ctf, offensive-security, privilege-escalation]
