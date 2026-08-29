@@ -9,7 +9,7 @@ image:
   alt: Word Mess - WordPress Mass Assignment and Custom Template SSTI
 ---
 
- This one's a BugForge daily challenge called **Word Mess** - a WordPress-based lab that chains two separate bugs together. Neither one alone gets you the flag. Here's the full breakdown.
+ This one's a BugForge weekly challenge called **Word Mess** - a WordPress-based lab that chains two separate bugs together. Neither one alone gets you the flag. Here's the full breakdown.
 
 > **Platform:** BugForge Labs &nbsp; **Category:** Web Application Exploitation &nbsp; **Vulnerability:** WordPress Mass Assignment + Custom Template SSTI
 
@@ -220,4 +220,4 @@ No reverse shell needed. The SSTI itself was enough to expose the flag directly 
 >
 > **Writeup by:** Rabin Gaire
 >
-> **Challenge:** BugForge Daily - Word Mess \| Aug 29th, 2026
+> **Challenge:** BugForge Weekly - Word Mess \| Aug 29th, 2026
